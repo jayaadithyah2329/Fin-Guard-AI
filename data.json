@@ -1,0 +1,234 @@
+{
+  "profile": {
+    "account_holder": "Shanti Devi (Grandma)",
+    "age": 72,
+    "primary_bank": "State Bank of India (Savings)",
+    "monthly_pension": 28000,
+    "trusted_contact": {
+      "name": "Rohan Sharma (Grandson)",
+      "relation": "Grandson",
+      "phone": "+91 98765 43210",
+      "notification_enabled": true,
+      "alert_threshold": "Review and High Priority"
+    },
+    "normal_spending_baseline": {
+      "average_transaction_amount": 620,
+      "max_typical_amount": 2500,
+      "typical_active_hours": "07:00 - 22:00",
+      "frequent_merchants": [
+        "FreshMart Groceries",
+        "City Pharmacy & Healthcare",
+        "Electricity Board BillPay",
+        "Milk Dairy Daily",
+        "LPG Gas Agency",
+        "BSNL Landline & Broadband",
+        "Rohan Sharma (Family)"
+      ]
+    }
+  },
+  "transactions": [
+    {
+      "id": "TXN_001",
+      "date": "2026-10-01",
+      "time": "08:15",
+      "merchant": "Milk Dairy Daily",
+      "amount": 90,
+      "type": "Debit",
+      "category": "Daily Essentials",
+      "recipient_status": "Known",
+      "description": "Daily morning milk supply"
+    },
+    {
+      "id": "TXN_002",
+      "date": "2026-10-01",
+      "time": "11:20",
+      "merchant": "GameZone FunApp",
+      "amount": 149,
+      "type": "Debit",
+      "category": "Digital / Entertainment",
+      "recipient_status": "Unknown",
+      "description": "Weekly puzzle game renewal (Week 1)"
+    },
+    {
+      "id": "TXN_003",
+      "date": "2026-10-03",
+      "time": "17:40",
+      "merchant": "City Pharmacy & Healthcare",
+      "amount": 420,
+      "type": "Debit",
+      "category": "Healthcare / Medicine",
+      "recipient_status": "Known",
+      "description": "Monthly blood pressure medication"
+    },
+    {
+      "id": "TXN_004",
+      "date": "2026-10-05",
+      "time": "10:30",
+      "merchant": "FreshMart Groceries",
+      "amount": 850,
+      "type": "Debit",
+      "category": "Groceries",
+      "recipient_status": "Known",
+      "description": "Weekly vegetable and grocery basket"
+    },
+    {
+      "id": "TXN_005",
+      "date": "2026-10-08",
+      "time": "11:22",
+      "merchant": "GameZone FunApp",
+      "amount": 149,
+      "type": "Debit",
+      "category": "Digital / Entertainment",
+      "recipient_status": "Unknown",
+      "description": "Weekly puzzle game renewal (Week 2)"
+    },
+    {
+      "id": "TXN_006",
+      "date": "2026-10-10",
+      "time": "14:15",
+      "merchant": "Electricity Board BillPay",
+      "amount": 1150,
+      "type": "Debit",
+      "category": "Utility Bill",
+      "recipient_status": "Known",
+      "description": "Monthly domestic electricity consumption"
+    },
+    {
+      "id": "TXN_007",
+      "date": "2026-10-12",
+      "time": "16:05",
+      "merchant": "FreshMart Groceries",
+      "amount": 620,
+      "type": "Debit",
+      "category": "Groceries",
+      "recipient_status": "Known",
+      "description": "Provisions & fruits"
+    },
+    {
+      "id": "TXN_008",
+      "date": "2026-10-15",
+      "time": "11:21",
+      "merchant": "GameZone FunApp",
+      "amount": 149,
+      "type": "Debit",
+      "category": "Digital / Entertainment",
+      "recipient_status": "Unknown",
+      "description": "Weekly puzzle game renewal (Week 3)"
+    },
+    {
+      "id": "TXN_009",
+      "date": "2026-10-18",
+      "time": "12:10",
+      "merchant": "City Pharmacy & Healthcare",
+      "amount": 310,
+      "type": "Debit",
+      "category": "Healthcare / Medicine",
+      "recipient_status": "Known",
+      "description": "Eye drops and calcium tablets",
+      "user_status": "Flagged for Follow-up",
+      "user_action_note": "User asked to flag for family check"
+    },
+    {
+      "id": "TXN_010",
+      "date": "2026-10-22",
+      "time": "11:25",
+      "merchant": "GameZone FunApp",
+      "amount": 149,
+      "type": "Debit",
+      "category": "Digital / Entertainment",
+      "recipient_status": "Unknown",
+      "description": "Weekly puzzle game renewal (Week 4)"
+    },
+    {
+      "id": "TXN_011",
+      "date": "2026-10-24",
+      "time": "03:05",
+      "merchant": "FastPay Unknown VPA (user9248@ybl)",
+      "amount": 15000,
+      "type": "Debit",
+      "category": "Peer-to-Peer Transfer",
+      "recipient_status": "Unknown",
+      "description": "Immediate UPI funds transfer at odd hours"
+    },
+    {
+      "id": "TXN_012",
+      "date": "2026-10-24",
+      "time": "10:18",
+      "merchant": "QuickCash Helpline Wallet",
+      "amount": 8000,
+      "type": "Debit",
+      "category": "Wallet Topup / Payment",
+      "recipient_status": "Unknown",
+      "description": "Online payment following SMS alert instruction"
+    }
+  ],
+  "sample_scam_messages": [
+    {
+      "id": "MSG_001",
+      "title": "Bank Account Block Threat (Cross-Signal Demo)",
+      "timestamp": "2026-10-24 10:05",
+      "sender": "VK-SBIINB",
+      "text": "URGENT ALERT: Your SBI Bank Account will be BLOCKED within 30 minutes due to pending KYC verification. Click http://sbi-kyc-update-auth9.net to verify your PAN and Aadhaar immediately to prevent debit freeze."
+    },
+    {
+      "id": "MSG_002",
+      "title": "Fake Electricity Disconnection Scam",
+      "timestamp": "2026-10-23 18:20",
+      "sender": "VM-POWERT",
+      "text": "Dear Consumer, your electricity power supply will be disconnected tonight at 9:30 PM because previous month bill is unpaid. Please immediately call electricity officer on 98721XXXXX or pay via link."
+    },
+    {
+      "id": "MSG_003",
+      "title": "Lottery / Prize Claim Scam",
+      "timestamp": "2026-10-21 14:10",
+      "sender": "AD-PRIZE",
+      "text": "Congratulations! You have won a cash reward of Rs 25,00,000 in KBC Lucky Draw. Share your 6-digit OTP and bank details to claim cash deposit immediately into your account."
+    },
+    {
+      "id": "MSG_004",
+      "title": "Follow-up Extortion / Pressure SMS (Cross-Signal Demo)",
+      "timestamp": "2026-10-24 10:25",
+      "sender": "VK-SBIINB",
+      "text": "FINAL NOTICE: Verification payment of Rs 8000 pending. Transfer immediately to Helpline Officer Wallet to unfreeze your bank services."
+    },
+    {
+      "id": "MSG_005",
+      "title": "Genuine Bank Alert (Safe Example)",
+      "timestamp": "2026-10-10 14:16",
+      "sender": "SBI-ALERT",
+      "text": "Your account ending with XX4210 has been debited by Rs 1,150.00 on 10-Oct-2026 towards Electricity Board BillPay. Available Balance: Rs 24,320.00. SBI never asks for OTP or PIN."
+    }
+  ],
+  "cross_signal_scenarios": [
+    {
+      "id": "SCENARIO_CHAIN_01",
+      "title": "Connected Account Impersonation & Coerced Payment",
+      "date": "2026-10-24",
+      "events": [
+        {
+          "time": "10:05 AM",
+          "type": "message",
+          "title": "Phishing KYC SMS Received",
+          "summary": "Urgent SMS claiming account will freeze in 30 minutes unless verified.",
+          "risk": "High"
+        },
+        {
+          "time": "10:18 AM",
+          "type": "transaction",
+          "title": "\u20b98,000 Transfer to Unknown Recipient",
+          "summary": "Sudden uncharacteristic transfer to 'QuickCash Helpline Wallet'.",
+          "risk": "High"
+        },
+        {
+          "time": "10:25 AM",
+          "type": "message",
+          "title": "Follow-up SMS Demanding More Money",
+          "summary": "Second message pressurizing user that verification is still incomplete.",
+          "risk": "High"
+        }
+      ],
+      "explanation": "These events occurred within 25 minutes of each other. The urgent message was quickly followed by an unusual payment to a new recipient, followed by another demand for money. In our experience, scammers frequently use rapid pressure to trigger panicked payments.",
+      "advice": "1. Do not send any further money. 2. Contact your bank's verified helpline directly. 3. Rohan Sharma has been notified to assist you."
+    }
+  ]
+}
