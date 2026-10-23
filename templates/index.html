@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PENNYPROOF - Senior-Friendly Financial Security & Scam Shield</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Top App Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-group">
+        <div class="logo-shield">
+          <i data-lucide="shield-check" class="shield-icon"></i>
+        </div>
+        <div>
+          <h1 class="brand-title">PENNYPROOF</h1>
+          <p class="brand-subtitle">Every Rupee Matters. Every Risk Counts.</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <!-- Dual View Switcher (Senior vs Family) -->
+        <div class="role-switcher" role="tablist">
+          <button id="viewSeniorBtn" class="role-btn active" onclick="switchView('senior')">
+            <i data-lucide="user"></i> Grandma Shanti's View
+          </button>
+          <button id="viewFamilyBtn" class="role-btn" onclick="switchView('family')">
+            <i data-lucide="users"></i> Rohan's Family Shield
+            <span class="family-badge-count" id="familyAlertBadge">3</span>
+          </button>
+        </div>
+
+        <!-- High Accessibility Controls -->
+        <div class="accessibility-tools">
+          <button id="voiceMuteToggleBtn" class="a11y-btn voice-mute-btn" onclick="toggleVoiceMute()" title="Toggle voice read-aloud sound on/off">
+            <i data-lucide="volume-2" id="voiceMuteIcon"></i> <span id="voiceMuteLabel">Voice On</span>
+          </button>
+          <button class="a11y-btn" onclick="toggleTextSize()" title="Toggle larger text for seniors">
+            <i data-lucide="type"></i> <span id="textSizeLabel">Large Text</span>
+          </button>
+          <button class="a11y-btn demo-reset-btn" onclick="resetDemoData()" title="Reset Demo Data">
+            <i data-lucide="rotate-ccw"></i> Reset Demo
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Live Audio Speech Banner (When TTS is playing) -->
+  <div id="ttsBanner" class="tts-banner hidden">
+    <div class="tts-content">
+      <i data-lucide="volume-2" class="pulse-icon"></i>
+      <span id="ttsCurrentText">Reading alert aloud...</span>
+    </div>
+    <button class="tts-stop-btn" onclick="stopSpeech()">
+      <i data-lucide="square"></i> Stop Voice
+    </button>
+  </div>
+
+  <main class="main-layout">
+    
+    <!-- ============================================================== -->
+    <!-- VIEW A: SENIOR CITIZEN'S DASHBOARD (Simple, large buttons, clean)-->
+    <!-- ============================================================== -->
+    <section id="seniorView" class="view-panel active-panel">
+      
+      <!-- Top Welcome & Master Status Card -->
+      <div class="welcome-card" id="masterStatusCard">
+        <div class="welcome-text">
+          <p class="greeting-pre">Namaste, <strong>Shanti Devi</strong> ji 🙏</p>
+          <h2 class="status-heading" id="shieldHeading">Your Account Status is Protected</h2>
+          <p class="status-desc" id="shieldDescription">
+            We are continuously monitoring your SBI Pension Account for hidden fees and scam threats.
+          </p>
+        </div>
+        <div class="shield-indicator" id="shieldIndicator">
+          <div class="shield-graphic safe" id="shieldGraphic">
+            <i data-lucide="shield-check" id="shieldIconGraphic"></i>
+          </div>
+          <span class="shield-tag" id="shieldTag">SAFE & SOUND</span>
+        </div>
+      </div>
+
+      <!-- Quick Action Navigation Tiles for Seniors -->
+      <div class="quick-nav-grid">
+        <a href="#section-subscriptions" class="quick-nav-card accent-purple">
+          <div class="nav-icon"><i data-lucide="calendar-clock"></i></div>
+          <div class="nav-info">
+            <span class="nav-badge" id="badgeSubCount">1 Found</span>
+            <h3>Hidden Subscriptions</h3>
+            <p>Catch auto-debits & repeating game charges</p>
+          </div>
+          <div class="nav-arrow"><i data-lucide="chevron-right"></i></div>
+        </a>
+
+        <a href="#section-suspicious" class="quick-nav-card accent-amber">
+          <div class="nav-icon"><i data-lucide="alert-triangle"></i></div>
+          <div class="nav-info">
+            <span class="nav-badge alert" id="badgeReviewCount">2 to Check</span>
+            <h3>Unusual Transactions</h3>
+            <p>Late night transfers & unfamiliar recipients</p>
+          </div>
+          <div class="nav-arrow"><i data-lucide="chevron-right"></i></div>
+        </a>
+
+        <a href="#section-scam-checker" class="quick-nav-card accent-blue">
+          <div class="nav-icon"><i data-lucide="message-square-warning"></i></div>
+          <div class="nav-info">
+            <span class="nav-badge blue">Instant AI</span>
+            <h3>Check Fraud SMS</h3>
+            <p>Paste suspicious messages to check for trickery</p>
+          </div>
+          <div class="nav-arrow"><i data-lucide="chevron-right"></i></div>
+        </a>
+
+        <a href="#section-cross-signal" class="quick-nav-card accent-red">
+          <div class="nav-icon"><i data-lucide="git-merge"></i></div>
+          <div class="nav-info">
+            <span class="nav-badge red">Cross-Signal</span>
+            <h3>Scam Timeline</h3>
+            <p>Connected phishing SMS & payment requests</p>
+          </div>
+          <div class="nav-arrow"><i data-lucide="chevron-right"></i></div>
+        </a>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- MODULE 1: HIDDEN SUBSCRIPTION DETECTOR     -->
+      <!-- ========================================== -->
+      <section id="section-subscriptions" class="module-section">
+        <div class="section-title-bar">
+          <div class="title-with-icon">
+            <div class="icon-circle purple"><i data-lucide="repeat"></i></div>
+            <div>
+              <h2 class="section-title">Hidden Recurring Charges Detector</h2>
+              <p class="section-subtitle">Identifies repeating fees (like ₹149 weekly game app subscriptions) that add up silently</p>
+            </div>
+          </div>
+          <button class="voice-btn" onclick="speakSection('sub-explanation-text')" title="Read this section aloud">
+            <i data-lucide="volume-2"></i> Listen Aloud
+          </button>
+        </div>
+
+        <div id="subscriptionCardsContainer" class="sub-container">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- MODULE 2: SUSPICIOUS TRANSACTION DETECTOR  -->
+      <!-- ========================================== -->
+      <section id="section-suspicious" class="module-section">
+        <div class="section-title-bar">
+          <div class="title-with-icon">
+            <div class="icon-circle amber"><i data-lucide="search"></i></div>
+            <div>
+              <h2 class="section-title">Transactions Requiring Attention</h2>
+              <p class="section-subtitle">Flagged based on uncharacteristic amount, unknown recipients, or odd hours</p>
+            </div>
+          </div>
+          <div class="filter-controls">
+            <button class="filter-pill active" onclick="filterTransactions('all')">All Recent</button>
+            <button class="filter-pill red" onclick="filterTransactions('High Priority')">🔴 High Priority</button>
+            <button class="filter-pill amber" onclick="filterTransactions('Review')">🟡 Need Review</button>
+            <button class="filter-pill green" onclick="filterTransactions('Normal')">🟢 Normal</button>
+          </div>
+        </div>
+
+        <div class="transactions-table-wrap">
+          <table class="senior-table" id="transactionsTable">
+            <thead>
+              <tr>
+                <th>Date & Time</th>
+                <th>Recipient / Store</th>
+                <th>Amount</th>
+                <th>Review Priority</th>
+                <th>Explanation & Safety Actions</th>
+              </tr>
+            </thead>
+            <tbody id="transactionTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- MODULE 3: SCAM MESSAGE ANALYSER            -->
+      <!-- ========================================== -->
+      <section id="section-scam-checker" class="module-section">
+        <div class="section-title-bar">
+          <div class="title-with-icon">
+            <div class="icon-circle blue"><i data-lucide="shield-alert"></i></div>
+            <div>
+              <h2 class="section-title">Scam Message & SMS Analyser</h2>
+              <p class="section-subtitle">Paste any SMS or WhatsApp message you received to check if someone is trying to trick you</p>
+            </div>
+          </div>
+          <button class="voice-btn" onclick="speakCurrentScamAnalysis()" title="Read scam report aloud">
+            <i data-lucide="volume-2"></i> Listen Report
+          </button>
+        </div>
+
+        <div class="scam-checker-grid">
+          <!-- Left: Input & Preset Samples -->
+          <div class="checker-input-card">
+            <label for="scamInputText" class="input-label">
+              <strong>Paste the message text here:</strong>
+            </label>
+            <textarea id="scamInputText" rows="5" class="senior-textarea" placeholder="Example: Your bank account will be blocked today. Click link to verify KYC..."></textarea>
+            
+            <div class="preset-pills-wrap">
+              <span class="preset-label">Or test with common scam examples:</span>
+              <div class="preset-chips">
+                <button class="preset-chip" onclick="loadSampleMessage(0)">🚨 Bank KYC Freeze Scam</button>
+                <button class="preset-chip" onclick="loadSampleMessage(1)">⚡ Electricity Cutoff Scam</button>
+                <button class="preset-chip" onclick="loadSampleMessage(2)">🎁 Lottery / KBC Prize</button>
+                <button class="preset-chip" onclick="loadSampleMessage(4)">✅ Normal Bank Debit Alert</button>
+              </div>
+            </div>
+
+            <div class="input-btn-row">
+              <button class="action-btn-large primary" onclick="analyzePastedMessage()">
+                <i data-lucide="sparkles"></i> Check Message Safety Now
+              </button>
+              <button class="action-btn-large secondary" onclick="clearMessageInput()">
+                Clear
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Analysis Card -->
+          <div class="checker-result-card" id="scamResultCard">
+            <div class="result-placeholder" id="scamPlaceholder">
+              <i data-lucide="search" class="placeholder-icon"></i>
+              <h3>Paste a message or pick a sample above</h3>
+              <p>PennyProof scans for threatening language, unverified links, fake officer impersonation, and secret code demands.</p>
+            </div>
+
+            <div class="result-details hidden" id="scamResultDetails">
+              <div class="result-status-header" id="scamRiskHeader">
+                <span class="risk-badge" id="scamRiskBadge">🔴 High Risk Scam</span>
+                <span class="risk-score-pill" id="scamScorePill">Risk Score: 10/10</span>
+              </div>
+
+              <h3 class="scam-verdict-title" id="scamVerdictTitle">DO NOT CLICK OR PAY</h3>
+              <p class="scam-plain-explanation" id="scamPlainExplanation"></p>
+
+              <div class="scam-signals-list">
+                <h4>Warning signs detected:</h4>
+                <ul id="scamSignalsUl"></ul>
+              </div>
+
+              <div class="scam-actions-box">
+                <h4>What should you do?</h4>
+                <ul id="scamAdviceUl"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================== -->
+      <!-- MODULE 4: CROSS-SIGNAL SCAM PATTERN DETECTION                  -->
+      <!-- ============================================================== -->
+      <section id="section-cross-signal" class="module-section">
+        <div class="section-title-bar">
+          <div class="title-with-icon">
+            <div class="icon-circle red"><i data-lucide="git-merge"></i></div>
+            <div>
+              <h2 class="section-title">Cross-Signal Scam Pattern Detector</h2>
+              <p class="section-subtitle">Our innovation: PennyProof links threatening messages with subsequent uncharacteristic payments</p>
+            </div>
+          </div>
+          <button class="voice-btn" onclick="speakSection('cross-signal-summary-text')" title="Read timeline aloud">
+            <i data-lucide="volume-2"></i> Listen Aloud
+          </button>
+        </div>
+
+        <div class="cross-signal-card" id="crossSignalContainer">
+          <!-- Dynamically populated timeline -->
+        </div>
+      </section>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- VIEW B: TRUSTED FAMILY MEMBER'S DASHBOARD (Rohan's view)       -->
+    <!-- ============================================================== -->
+    <section id="familyView" class="view-panel">
+      <div class="family-header-banner">
+        <div class="family-info-text">
+          <div class="family-avatar"><i data-lucide="heart-handshake"></i></div>
+          <div>
+            <h2>Trusted Family Shield: Rohan Sharma</h2>
+            <p>Authorized by <strong>Shanti Devi</strong> to receive critical financial anomaly & subscription warnings.</p>
+          </div>
+        </div>
+        <div class="family-meta-tags">
+          <span class="privacy-pill"><i data-lucide="lock"></i> Privacy Preserved: Only flagged alerts shared</span>
+          <span class="contact-pill"><i data-lucide="phone"></i> Grandma: +91 98210 11223</span>
+        </div>
+      </div>
+
+      <div class="family-summary-cards">
+        <div class="stat-card red">
+          <div class="stat-num" id="statFamCritical">1</div>
+          <div class="stat-label">Critical Coordinated Alerts</div>
+          <p>Phishing SMS linked with rapid payment request</p>
+        </div>
+        <div class="stat-card amber">
+          <div class="stat-num" id="statFamReview">1</div>
+          <div class="stat-label">Unusual Late-Night Charges</div>
+          <p>₹15,000 unverified transfer at 3:05 AM</p>
+        </div>
+        <div class="stat-card purple">
+          <div class="stat-num" id="statFamSub">1</div>
+          <div class="stat-label">Silent Recurring Charges</div>
+          <p>₹149 weekly GameZone charge (₹596 spent)</p>
+        </div>
+      </div>
+
+      <div class="family-alerts-feed">
+        <h3 class="feed-title">
+          <i data-lucide="bell-ring"></i> Family Action Queue (Awaiting Rohan's Review)
+        </h3>
+
+        <div id="familyAlertsList" class="family-alerts-list">
+          <!-- Dynamically populated alerts -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Action Confirmation Modal (Review / Report / Keep Safe) -->
+  <div id="actionModal" class="modal-backdrop hidden">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="modalTitle">Review Transaction</h3>
+        <button class="modal-close" onclick="closeModal()"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Injected details -->
+      </div>
+      <div class="modal-footer" id="modalFooter">
+        <!-- Injected action buttons -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast hidden">
+    <i data-lucide="check-circle" id="toastIcon"></i>
+    <span id="toastMsg">Action completed successfully.</span>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <p><strong>PENNYPROOF Prototype</strong> &bull; AI-Assisted Financial Monitoring & Scam Guard for Seniors</p>
+      <p class="footer-disclaimer">
+        Disclaimer: This prototype uses sample transaction data and explainable heuristics to assist seniors. 
+        It does not make real bank debits, cancel third-party contracts directly, or file police complaints without official channels.
+      </p>
+    </div>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
